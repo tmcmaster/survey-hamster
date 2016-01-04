@@ -1,0 +1,117 @@
+<!--
+
+    Firebase Data Component.
+
+    Author: Tim McMaster
+    
+-->
+
+<link href="../bower_components/polymer/polymer.html" rel="import">
+<link href="../bower_components/paper-material/paper-material.html" rel="import">
+<link href="../bower_components/paper-ripple/paper-ripple.html" rel="import">
+<link href="../bower_components/paper-behaviors/paper-button-behavior.html" rel="import">
+<link href="../bower_components/iron-flex-layout/iron-flex-layout.html" rel="import">
+
+<link href="../bower_components/paper-drawer-panel/paper-drawer-panel.html" rel="import">
+<link href="../bower_components/paper-header-panel/paper-header-panel.html" rel="import">
+<link href="../bower_components/paper-toolbar/paper-toolbar.html" rel="import">
+<link href="../bower_components/paper-icon-button/paper-icon-button.html" rel="import">
+<link href="../bower_components/paper-menu/paper-menu.html" rel="import">	
+<link href="../bower_components/paper-item/paper-item.html" rel="import">
+<link href="../bower_components/paper-input/paper-input.html" rel="import">
+<link href="../bower_components/iron-icons/iron-icons.html" rel="import">
+
+<link rel="import" href="../bower_components/paper-styles/color.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/firebase-element/firebase-document.html">
+
+<dom-module id="firebase-data" extends="div">
+
+    <style is="custom-style">
+        .horizontal-section {
+            min-width: 130px;
+            margin-bottom: 20px;
+        }
+    </style>
+    
+    <template>
+        <div class="horizontal-section">
+            <paper-button tabindex="0">button</paper-button>
+            <paper-button tabindex="0" class="colorful">colorful</paper-button>
+            <paper-button tabindex="0" disabled>disabled</paper-button>
+            <paper-button tabindex="0" noink>noink</paper-button>
+            <paper-button tabindex="0" class="colorful custom"><iron-icon icon="check"></iron-icon>ok</paper-button>
+            <paper-button tabindex="0" class="custom"><iron-icon icon="clear"></iron-icon>cancel</paper-button>
+        </div>
+        
+        <firebase-document
+            location="https://incandescent-heat-8795.firebaseio.com/ccc"
+            data="{{ccc}}" log></firebase-document>
+         
+        <paper-input label="Name" value="[[ccc.name]]" readonly="true"></paper-input> 
+        <paper-input label="Age" value="{{ccc.age}}"></paper-input> 
+        
+        <span>[[ccc.name]]</span>
+
+        <!--template is="dom-repeat" items="{{survey.definition.page}}" as="page">
+            <h2>{{page.title}}</h2>
+            <template is="dom-repeat" items="{{page.question}}" as="question">
+                <h3>[[question.label]] : [[question.type]]</h3>
+            </template>
+        </template-->
+        
+    </template>
+    
+    <script>
+        
+        Polymer({
+            is: "firebase-data",
+
+            properties: {
+                ccc: {
+                    type: Object
+                },
+            },
+            /*"ready" : function() {
+                this.survey = {
+                    definition : {
+                        page : [
+                            {
+                                "title" : "Page One",
+                                "question" : [ 
+                                    {
+                                        "label" : "Name",
+                                        "type" : "string"
+                                    }, {
+                                        "label" : "Age",
+                                        "type" : "integer"
+                                    }
+                                ]
+                            }, {
+                                "title" : "Page Two"
+                            }
+                        ]
+                    }, 
+                    "instance" : [
+                        {
+                            "page" : [
+                                {
+                                    "question" : [
+                                        {
+                                            "value" : "Ben"
+                                        }, {
+                                            "value" : 22
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }*/
+        });
+
+    </script>
+    
+</dom-module>

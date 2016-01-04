@@ -1,0 +1,84 @@
+<!--
+
+    cudos-mockup - CUDOS meets Polymer
+
+    Author: Tim McMaster
+    
+-->
+
+<link href="../bower_components/polymer/polymer.html" rel="import">
+<link href="../bower_components/paper-material/paper-material.html" rel="import">
+<link href="../bower_components/paper-ripple/paper-ripple.html" rel="import">
+<link href="../bower_components/paper-behaviors/paper-button-behavior.html" rel="import">
+<link href="../bower_components/iron-flex-layout/iron-flex-layout.html" rel="import">
+
+<link href="cudos-policy-tabs.html" rel="import"/>
+<link href="cudos-policy-pane.html" rel="import"/>
+<link href="cudos-menu-bar.html" rel="import"/>
+
+<dom-module id="cudos-client" extends="div">
+
+    <style is="custom-style">
+        fieldset {
+            display:inline-block;
+            width:1200px;
+        }
+    </style>
+    
+    <template>
+        <h2>This is a mockup of the CUDOS application using Polymer</h2>
+
+        <fieldset>
+            <legend>cudos-client</legend>
+            <cudos-policy-tabs context="{{context}}"></cudos-policy-tabs>
+            <cudos-menu-bar></cudos-menu-bar>
+            <cudos-policy-pane context="{{context}}">
+                
+            </cudos-policy-pane>
+        </fieldset>
+    </template>
+    
+    <script>
+        
+        Polymer({
+            is: "cudos-client",
+
+            properties: {
+            },
+            
+            ready: function() {
+                this.context = {
+                    user : {
+                        id : 'mrenolds',
+                        name : 'Malcolm Renolds',
+                    },
+                    selected : 1,
+                    definition : {
+                        sections : [
+                            { title : 'General Information'},
+                            { title : 'Section 2'},
+                            { title : 'Section 3'},
+                            { title : 'Section 4'}
+                        ]
+                    },
+                    policies : [
+                        {
+                            id: 'CPK1234',
+                            type: 'BUSINESS INSURANCE',
+                            action: 'Renewal Amendment'
+                        },
+                        {
+                            id: 'CPK1235',
+                            type: 'BUSINESS INSURANCE',
+                            action: 'New Business'
+                        }
+                    ],
+                    appdata : ['D', 'e', 'f']
+                }
+            }
+        })
+
+    </script>
+    
+</dom-module>
+

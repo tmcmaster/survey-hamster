@@ -1,0 +1,84 @@
+<!--
+
+    cudos-pol-pane - CUDOS component
+
+    Author: Tim McMaster
+    
+-->
+
+<link href="../bower_components/polymer/polymer.html" rel="import">
+<link href="../bower_components/paper-material/paper-material.html" rel="import">
+<link href="../bower_components/paper-ripple/paper-ripple.html" rel="import">
+<link href="../bower_components/paper-behaviors/paper-button-behavior.html" rel="import">
+<link href="../bower_components/iron-flex-layout/iron-flex-layout.html" rel="import">
+<link href="../bower_components/paper-card/paper-card.html" rel="import">
+<link href="../bower_components/paper-tooltip/paper-tooltip.html" rel="import">
+
+<link href="cudos-policy-summary.html" rel="import">
+<link href="cudos-policy-menu.html" rel="import">
+<link href="cudos-section-tree.html" rel="import">
+<link href="cudos-section-pane.html" rel="import">
+<link href="cudos-nav-bar.html" rel="import">
+<link href="cudos-details-tabs.html" rel="import">
+<link href="cudos-details-pane.html" rel="import">
+
+
+<dom-module id="cudos-policy-pane" attributes="context">
+
+    <style is="custom-style">
+        fieldset {
+            /*display:inline-block;*/
+            width:1100px;
+            /*clear:both;*/
+            /*float:left;*/
+        }
+        div.section { float:left; width:600px; }
+        div.details { float:right; width:500px; height:600px;}
+        .section {
+            padding: 5px;
+        }
+    </style>
+    
+    <template>
+        <paper-card>
+            <paper-tooltip>cudos-policy-pane</paper-tooltip>
+            <iron-pages selected="{{context.selected}}">
+                <template is="dom-repeat" items="{{context.policies}}">
+                    <div class="page">
+                        <div class="section">
+                            <cudos-policy-info context="{{context}}" policy="{{item}}"></cudos-policy-info>
+                            <cudos-policy-menu></cudos-policy-menu>
+                            <cudos-section-tree></cudos-section-tree>
+                            <cudos-section-pane></cudos-section-pane>
+                            <cudos-nav-bar></cudos-nav-bar>
+                        </div>
+                        <div class="details">
+                            <cudos-details-tabs></cudos-details-tabs>
+                            <cudos-details-pane></cudos-details-pane>
+                        </div>
+                    </div>
+                </template>
+            </iron-pages>           
+            
+            <!--<iron-pages selected="{{context.selected}}">-->
+            <!--    <template is="dom-repeat" items="{{context.policies}}">-->
+            <!--        <cudos-policy-summary policy="{{policy}}" ></cudos-policy-summary>-->
+            <!--        <cudos-info-menu policy="{{policy}}"></cudos-info-menu>-->
+            <!--    </template>-->
+            <!--</iron-pages>            -->
+        </paper-card>
+    </template>
+    
+    <script>
+        Polymer({
+            is: "cudos-policy-pane",
+            
+            properties: {
+            
+                selected : {
+                    value : 1
+                }
+            }
+        })
+    </script>
+</dom-module>

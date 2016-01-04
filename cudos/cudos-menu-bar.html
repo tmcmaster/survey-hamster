@@ -1,0 +1,39 @@
+<!--
+
+    cudos-pol-pane - CUDOS component
+
+    Author: Tim McMaster
+    
+-->
+
+<link href="../bower_components/polymer/polymer.html" rel="import">
+<link href="../bower_components/paper-material/paper-material.html" rel="import">
+<link href="../bower_components/paper-ripple/paper-ripple.html" rel="import">
+<link href="../bower_components/paper-behaviors/paper-button-behavior.html" rel="import">
+<link href="../bower_components/iron-flex-layout/iron-flex-layout.html" rel="import">
+<link href="../bower_components/paper-button/paper-button.html" rel="import">
+
+<dom-module id="cudos-menu-bar" attributes="policy">
+
+    <style is="custom-style">
+        fieldset {width:400px; float:left; height:70px;}
+    </style>
+    
+    <template>
+        <fieldset>
+            <legend>cudos-menu-bar</legend>
+            <paper-button raised>Quote</paper-button>
+            <paper-button raised>New Business</paper-button>
+        </fieldset>
+    </template>
+    
+    <script>
+        Polymer({
+            is: "cudos-menu-bar",
+            
+            properties: {
+            
+            }
+        })
+    </script>
+</dom-module>

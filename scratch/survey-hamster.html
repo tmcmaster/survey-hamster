@@ -1,0 +1,75 @@
+<!--
+
+    Survey Hamster - Survey Monkey meets Polymer.
+
+    Author: Tim McMaster
+    
+-->
+
+<link href="../bower_components/polymer/polymer.html" rel="import">
+<link href="../bower_components/paper-material/paper-material.html" rel="import">
+<link href="../bower_components/paper-ripple/paper-ripple.html" rel="import">
+<link href="../bower_components/paper-behaviors/paper-button-behavior.html" rel="import">
+<link href="../bower_components/iron-flex-layout/iron-flex-layout.html" rel="import">
+
+<link href="../bower_components/paper-drawer-panel/paper-drawer-panel.html" rel="import">
+<link href="../bower_components/paper-header-panel/paper-header-panel.html" rel="import">
+<link href="../bower_components/paper-toolbar/paper-toolbar.html" rel="import">
+<link href="../bower_components/paper-icon-button/paper-icon-button.html" rel="import">
+<link href="../bower_components/paper-menu/paper-menu.html" rel="import">	
+<link href="../bower_components/paper-item/paper-item.html" rel="import">
+<link href="../bower_components/paper-input/paper-input.html" rel="import">
+<link href="../bower_components/iron-icons/iron-icons.html" rel="import">
+<link href="../bower_components/paper-styles/demo-pages.html" rel="import">
+
+<link rel="import" href="../bower_components/paper-styles/color.html">
+<!--<link rel="import" href="../bower_components/paper-styles/demo-pages.html">-->
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+  
+<link href="sh-tabs-horizontal.html" rel="import">
+
+<dom-module id="survey-hamster" extends="div">
+
+    <style is="custom-style">
+        h2 { color: red; }
+        
+        .horizontal-section {
+      min-width: 130px;
+      border:solid red 1px;
+    @apply(--layout-vertical);
+    @apply(--center-justified);
+            
+        }
+    
+    
+    </style>
+    
+    <template>
+        <h2>This is a Survey Application</h2>
+        <sh-tabs-horizontal></sh-tabs-horizontal>
+        <div>
+        <div class="horizontal-section">
+            <paper-button tabindex="0">button</paper-button>
+            <paper-button tabindex="0" class="colorful">colorful</paper-button>
+            <paper-button tabindex="0" disabled>disabled</paper-button>
+            <paper-button tabindex="0" noink>noink</paper-button>
+            <paper-button tabindex="0" class="colorful custom"><iron-icon icon="check"></iron-icon>ok</paper-button>
+            <paper-button tabindex="0" class="custom"><iron-icon icon="clear"></iron-icon>cancel</paper-button>
+          </div>
+          </div>
+    </template>
+    
+    <script>
+        
+        Polymer({
+            is: "survey-hamster",
+
+            properties: {
+            }
+        })
+
+    </script>
+    
+</dom-module>
+

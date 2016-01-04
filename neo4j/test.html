@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="jquery-1.9.1.min.js"></script>
+	<script src="jquery.ajax-cross-origin.min.js"></script>
+	<script>
+function loadDoc() {
+	console.log("loadDoc start.");
+	var data = '{"statements" : [ {"statement" : "MATCH (n) RETURN n"} ]}';
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+     //document.getElementById("demo").innerHTML = xhttp.responseText;
+     console.log('RESULT: ' + xhttp.responseText);
+    }
+  };
+  //xhttp.open("POST", "http://prototype.sb02.stations.graphenedb.com:24789/db/data/transaction/commit", true, 'prototype', '6o5Cj0vHM9jJACkfLcA1');
+  xhttp.open("POST", "http://prototype.sb02.stations.graphenedb.com:24789/db/data/transaction/commit", true);
+  //xhttp.withCredentials = true; 
+  xhttp.setRequestHeader("Authorization", 'Basic cHJvdG90eXBlOjZvNUNqMHZITTlqSkFDa2ZMY0Ex');
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  //xhttp.setRequestHeader("x-requested-with", "pingpong");
+  xhttp.setRequestHeader("Accept", "application/json");
+  //xhttp.setRequestHeader("origin","firefly.mcmaster.id.au:8000");
+  //xhttp.setRequestHeader("Access-Control-Allow-Origin", "http://firefly.mcmaster.id.au:8000")
+  xhttp.send(data);
+	console.log("loadDoc end.");
+}
+
+function loadFromFirebase() {
+	console.log("loadFromFirebase start.");
+	var data = null;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+     //document.getElementById("demo").innerHTML = xhttp.responseText;
+     console.log('RESULT: ' + xhttp.responseText);
+    }
+  };
+  //xhttp.open("POST", "http://prototype.sb02.stations.graphenedb.com:24789/db/data/transaction/commit", true, 'prototype', '6o5Cj0vHM9jJACkfLcA1');
+  xhttp.open("GET", "https://incandescent-heat-8795.firebaseio.com/ccc.json", true);
+  //xhttp.withCredentials = true; 
+  //xhttp.setRequestHeader("Authorization", 'Basic cHJvdG90eXBlOjZvNUNqMHZITTlqSkFDa2ZMY0Ex');
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  //xhttp.setRequestHeader("x-requested-with", "pingpong");
+  xhttp.setRequestHeader("Accept", "application/json");
+  //xhttp.setRequestHeader("origin","firefly.mcmaster.id.au:8000");
+  //xhttp.setRequestHeader("Access-Control-Allow-Origin", "http://firefly.mcmaster.id.au:8000")
+  xhttp.send(data);
+	console.log("loadFromFirebase end.");
+}
+
+function getNodeZero() {
+	var data = { "query": "MATCH m return m", "params": {} }
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+     document.getElementById("demo").innerHTML = xhttp.responseText;
+    }
+  };
+  xhttp.open("GET", "http://prototype.sb02.stations.graphenedb.com:24789/db/data/node/0", true);
+  //xhttp.withCredentials = true; 
+  xhttp.setRequestHeader("Authorization", 'Basic cHJvdG90eXBlOjZvNUNqMHZITTlqSkFDa2ZMY0Ex');
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.setRequestHeader("Accept", "application/json");
+  xhttp.send(data);
+}
+
+function reqListener () {
+  console.log(this.responseText);
+}
+
+function aaa(result) {
+	conssol.log('AAA: ' + result);
+}
+
+function ajaxTest()
+{
+	$.ajax({
+	    type: 'GET',
+	    url: 'http://prototype.sb02.stations.graphenedb.com:24789/db/data/?callback=?',
+	    data: null,
+	    dataType: 'jsonp',
+	    jsonpCallback: 'aaa',
+	    success: function(response) {
+
+	    console.log('Response: ' + response);
+
+	  },
+	  xhrFields: {
+	    withCredentials: true
+	  },
+	  error: function(error) {
+
+	    console.log('ERROR:', error);
+
+	  }
+	});
+}
+
+function test2() {
+	var oReq = new XMLHttpRequest();
+	oReq.addEventListener("load", reqListener);
+	oReq.withCredentials = true
+	oReq.open("GET", "http://www.example.org/example.txt");
+	//oReq.open("GET", "test.html");
+	oReq.send();
+}
+
+	$(document).ready(function() {
+		console.log('JQuery ready');
+		ajaxTest();
+	});
+
+	</script>
+</head>
+<body>
+
+<div id="demo"><h2>Let AJAX change this text</h2></div>
+
+<button type="button" onclick="loadDoc()">Load from Neo4j</button>
+<button type="button" onclick="loadFromFirebase()">Load from Firebase</button>
+
+<span id="demo"></span>
+
+<!-- <iframe src="http://prototype.sb02.stations.graphenedb.com:24789/db/data/">
+</iframe>
+ -->
+</body>
+</html>

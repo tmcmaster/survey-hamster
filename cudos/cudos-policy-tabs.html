@@ -1,0 +1,56 @@
+<!--
+
+    cudos-pol-tabs - CUDOS policy tabs panel
+
+    Author: Tim McMaster
+    
+-->
+
+<link href="../bower_components/polymer/polymer.html" rel="import">
+<link href="../bower_components/paper-material/paper-material.html" rel="import">
+<link href="../bower_components/paper-ripple/paper-ripple.html" rel="import">
+<link href="../bower_components/paper-behaviors/paper-button-behavior.html" rel="import">
+<link href="../bower_components/iron-flex-layout/iron-flex-layout.html" rel="import">
+<link href="../bower_components/paper-tabs/paper-tabs.html" rel="import">
+<link href="../bower_components/iron-pages/iron-pages.html" rel="import">
+
+<link href="cudos-policy-pane.html" rel="import"/>
+
+<dom-module id="cudos-policy-tabs" attributes="context">
+
+    <style is="custom-style">
+        fieldset {
+            width:700px;
+            height:70px;
+            float:left;
+        }
+    </style>
+    
+    <template>
+        <fieldset>
+            <legend>cudos-policy-tabs</legend>
+            <paper-tabs selected="{{context.selected}}">
+                <template is="dom-repeat" items="{{context.policies}}">
+                     <paper-tab>{{item.id}}</paper-tab>
+                </template>
+            </paper-tabs>
+        </fieldset>
+    </template>
+    
+    <script>
+        
+        Polymer({
+            is: "cudos-policy-tabs",
+            getPolicy : function() {return this.policies[0]},
+            properties: {
+            
+                selected : {
+                    value : 1
+                }
+            }
+        });
+
+    </script>
+    
+</dom-module>
+

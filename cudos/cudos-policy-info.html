@@ -1,0 +1,49 @@
+<!--
+
+    cudos-pol-pane - CUDOS component
+
+    Author: Tim McMaster
+    
+-->
+
+<link href="../bower_components/polymer/polymer.html" rel="import">
+<link href="../bower_components/paper-material/paper-material.html" rel="import">
+<link href="../bower_components/paper-ripple/paper-ripple.html" rel="import">
+<link href="../bower_components/paper-behaviors/paper-button-behavior.html" rel="import">
+<link href="../bower_components/iron-flex-layout/iron-flex-layout.html" rel="import">
+<link href="../bower_components/paper-card/paper-card.html" rel="import">
+<link href="../bower_components/paper-tooltip/paper-tooltip.html" rel="import">
+
+<dom-module id="cudos-policy-info" attributes="context policy">
+
+    <style is="custom-style">
+        paper-card {width:600px; float:left; margin:10px; padding:5px;}
+    </style>
+    
+    <template>
+        <paper-card elevation="2">
+            <paper-tooltip>cudos-policy-info</paper-tooltip>
+            <span>Policy ID : {{policy.id}}</span><br>
+            <span>{{policy.type}} : {{policy.action}}</span>
+        </paper-card>
+        <!--<fieldset>-->
+        <!--    <legend>cudos-policy-info</legend>-->
+        <!--     <span>Policy ID : {{policy.id}}</span><br>-->
+        <!--    <span>{{policy.type}} : {{policy.action}}</span>-->
+        <!--</fieldset>-->
+    </template>
+    
+    <script>
+        Polymer({
+            is: "cudos-policy-info",
+            context : this.context,
+            getPolicyId : function() {
+                console.log(this.context);
+                return "SDSDFF"; 
+            },
+            properties: {
+            
+            }
+        })
+    </script>
+</dom-module>
