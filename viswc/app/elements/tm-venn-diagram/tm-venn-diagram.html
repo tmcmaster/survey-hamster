@@ -1,0 +1,77 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="tm-venn-diagram">
+
+  <style>
+
+    :host {
+      display: block;
+    }
+    
+  </style>
+
+  <template>
+    <div id="aaaa"></div>
+  </template>
+
+  <script src="../../bower_components/d3/d3.min.js"></script>
+
+  <script>
+    (function() {
+      'use strict';
+      
+      function setup()
+      {
+        var width = 960,
+            height = 500;
+        
+        var div = d3.select("#aaaa");
+        var svg = div.append("svg")
+            .attr("width", width)
+            .attr("height", height);
+        
+        svg.append("circle")
+            .attr("cx", 350)
+            .attr("cy", 200)
+            .attr("r", 200)
+            .style("fill", "#ffff00")
+            .style("fill-opacity", ".5");
+        
+        svg.append("circle")
+            .attr("cx", 550)
+            .attr("cy", 200)
+            .attr("r", 200)
+            .style("fill", "#99ccff")
+            .style("fill-opacity", ".5");
+        
+    }
+      
+      Polymer({
+        is: 'tm-venn-diagram',
+        properties: {
+          data: {
+            type: String,
+            value: 'foo',
+            notify: true
+          }
+        },
+        ready : function() {
+          //alert('fsdfsdf')
+          setup(this.data);
+          console.log('Data: ' + this.data)
+        }
+      });
+    })();
+  </script>
+  
+</dom-module>

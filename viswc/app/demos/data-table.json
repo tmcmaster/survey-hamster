@@ -1,0 +1,31 @@
+{
+    "title": "Data Table Data",
+    "fields" : [
+        {
+            "name": "firstName",
+            "label":"First Name"
+            
+        },
+        {
+            "name": "lastNmae",
+            "label": "Last Name"
+            
+        },
+        {
+            "name": "email", 
+            "label": "Email Address"
+            
+        }
+    ],
+    "records" : [
+        {"firstName":"AaA","lastName":"BbB","email":"CcC"},
+        {"firstName":"AAA","lastName":"BBB","email":"CCC"},
+        {"firstName":"AAA","lastName":"BBB","email":"CCC"},
+        {"firstName":"AAA","lastName":"BBB","email":"CCC"},
+        {"firstName":"AAA","lastName":"BBB","email":"CCC"},
+        {"firstName":"AAA","lastName":"BBB","email":"CCC"},
+        {"firstName":"AAA","lastName":"BBB","email":"CCC"},
+        {"firstName":"AAA","lastName":"BBB","email":"CCC"},
+        {"firstName":"AAA","lastName":"BBB","email":"CCC"}
+    ]
+}

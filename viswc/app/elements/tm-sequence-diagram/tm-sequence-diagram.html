@@ -1,0 +1,71 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="tm-sequence-diagram">
+
+  <style>
+
+    :host {
+      display: block;
+    }
+    
+  </style>
+
+  <template>
+    <div id="tm-sequence-diagram">
+      <span>This is going to tbe a sequence diagram</span>
+    </div>
+  </template>
+
+  <script src="../../bower_components/snap.svg/dist/snap.svg.js"></script>
+  <script src="../../bower_components/lodash/dist/lodash.min.js"></script>
+  <script src="../../bower_components/diagram-js/diagram.js"></script>
+  <script src="../../bower_components/raphael/raphael-min.js"></script>
+  <script src="../../bower_components/js-sequence-diagrams/build/sequence-diagram-min.js"></script>
+  <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+  
+  <script>
+    (function() {
+      'use strict';
+      
+      function setup(datafile, theme)
+      {
+         $('#tm-sequence-diagram').empty();
+         $.get(datafile, function(data) {
+            var diagram = Diagram.parse(data);
+            diagram.drawSVG("tm-sequence-diagram", {theme: theme});
+          });
+      }
+      
+      Polymer({
+        is: 'tm-sequence-diagram',
+        properties: {
+          data: {
+            type: String,
+            value: 'foo',
+            notify: true
+          },
+          theme: {
+            type: String,
+            value: 'simple',
+            notify: true
+          }
+        },
+        ready : function() {
+          setup(this.data, this.theme);
+          console.log('Data: ' + this.data + ', Theme: ' + this.theme)
+        }
+      });
+    })();
+  </script>
+  
+</dom-module>

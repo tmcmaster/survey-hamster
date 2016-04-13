@@ -1,0 +1,115 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="tm-data-table">
+
+  <style>
+
+    :host {
+      display: block;
+    }
+    
+  </style>
+
+  <link href="../../bower_components/vaadin-grid/vaadin-grid.html" rel="import" />
+  
+  <template>
+    <div id="tm-data-table">
+      <vaadin-grid>
+        <table>
+            <colgroup>
+              <template is="dom-repeat" items="{{users.fields}}">
+                <col name="{{item.name}}">
+              </template>
+            </colgroup>
+            <thead>
+              <tr>
+                <template is="dom-repeat" items="{{users.fields}}">
+                  <th>{{item.label}}</th>
+                </template>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Jonathan</td>
+                <td>Doe</td>
+                <td>jonathan.doe@example.com</td>
+              </tr>
+              <template is="dom-repeat" items="{{users.records}}">
+                <tr>
+                <td>{{item.firstName}}</td>
+                <td>{{item.lastName}}</td>
+                <td>{{item.email}}</td>
+                </tr>
+              </template>
+              <tr>
+                <td>Jane</td>
+                <td>Smith</td>
+                <td>jane.smith@example.com</td>
+              </tr>
+        
+            </tbody>
+          </table>
+        </vaadin-grid>
+     </div>
+  </template>
+
+  <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+  
+  <script>
+    (function() {
+      'use strict';
+      
+      function setup(self, datafile)
+      {
+         //$('#tm-sequence-diagram').empty();
+        // $.get(datafile, function(data) {
+        //   console.log(data)
+        //   self.users = data; //(data instanceof Array ? data : [ data ]) 
+        // });
+        
+        $.ajax({
+          url: datafile, 
+          type: 'get',
+          error: function(XMLHttpRequest, textStatus, errorThrown){
+              alert('status:' + XMLHttpRequest.status + ', status text: ' + XMLHttpRequest.statusText);
+          },
+          success: function(data){
+            console.log(data)
+           self.users = data;
+          }
+      });
+      }
+      
+      Polymer({
+        is: 'tm-data-table',
+        properties: {
+          data: {
+            type: String,
+            value: 'foo',
+            notify: true
+          },
+          users : {
+            type: Array,
+            value : [{"firstName":"AA","lastName":"BB","email":"CC"}],
+            notify: true
+          }
+        },
+        ready : function() {
+          setup(this, this.data);
+          console.log('Data: ' + this.data)
+        }
+      });
+    })();
+  </script>
+  
+</dom-module>

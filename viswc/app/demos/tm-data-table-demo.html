@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<link href="shared-meta.html" rel="import">
+		
+		<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+		
+		<link href="../elements/elements.html" rel="import">
+		<link href="../elements/tm-data-table/tm-data-table.html" rel="import">
+
+		<script>
+			var users = [{"firstName":"Aaa","lastName":"Bbb","email":"Ccc"}]
+		</script>
+		
+		<style>
+			
+			body { box-sizing: border-box; border: solid lightgrey 1px; padding:10px;}
+			h2 {text-align:center}
+			tm-data-table {
+				box-sizing: border-box;
+				width:900px;
+				height:400px;
+				margin-left: auto;
+  				margin-right:auto;
+		      	border:solid lightgray 1px;
+			    box-shadow: 10px 10px 5px #888888;
+		      	padding: 10px
+			}
+
+			</style>
+	</head>
+	
+	<body>
+		<h2>Data Table - Polymer Element - Demo</h2>
+		<tm-data-table data="data-table.json" />
+	</body>
+</html>

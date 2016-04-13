@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<link href="shared-meta.html" rel="import">
+		
+		<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+		
+		<link href="../elements/elements.html" rel="import">
+		<link href="../elements/tm-sequence-diagram/tm-sequence-diagram.html" rel="import">
+
+		<style>
+			
+			body { box-sizing: border-box; border: solid lightgrey 1px; padding:10px;}
+			h2 {text-align:center}
+			tm-sequence-diagram {
+				box-sizing: border-box;
+				width:900px;
+				margin-left: auto;
+  				margin-right:auto;
+		      	border:solid lightgray 1px;
+			    box-shadow: 10px 10px 5px #888888;
+		      	padding: 10px;			}
+			</style>
+	</head>
+	
+	<body>
+		<h2>Sequence Diagram - Polymer Element - Demo</h2>
+		<tm-sequence-diagram data="data.txt" theme="hand" />
+	</body>
+</html>
