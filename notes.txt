@@ -1,0 +1,1 @@
+/home/ubuntu/.nvm/versions/node/v4.2.1/bin/firebase list
