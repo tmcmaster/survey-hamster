@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+
+</style>
+<body>
+<script src="d3.v3.js"></script>
+<script>
+
+//var width = 960, height = 500;
+
+var margin = 40;
+var gridSize = 40;
+var rows = 6;
+var columns = 6;
+
+var width = columns*gridSize+2*margin, height = rows*gridSize+2*margin;
+
+
+
+var radius = gridSize/4;
+
+
+var xMin = margin+gridSize/2;
+var xMax = width-xMin;
+var yMin = margin+gridSize/2;
+var yMax = height-yMin;
+
+var svg = d3.select("body")
+    .append("svg:svg")
+    .attr("width", width)    
+    .attr("height", height); 
+
+
+// To draw a line use the "svg:line" element.
+// "svg:line" element requires 4 attributes (x1, y1, x2, and y2)
+// (x1,y1) are coordinates of the starting point. 
+// (x2,y2) are coordinates of the end point.
+// You also need to specify the stroke color.
+ 
+// Using for loop to draw multiple horizontal lines
+for (var j=margin; j <= width-margin; j=j+gridSize) {
+	svg.append("svg:line")
+        .attr("x1", margin)
+        .attr("y1", j)
+        .attr("x2", width-margin)
+        .attr("y2", j)
+        .style("stroke", "rgb(6,120,155)")
+        .style("stroke-width", 2);            
+};
+ 
+// Using for loop to draw multiple vertical lines
+for (var j=margin; j <= height-margin; j=j+gridSize) {
+	svg.append("svg:line")
+        .attr("x1", j)
+        .attr("y1", margin)
+        .attr("x2", j)
+        .attr("y2", height-margin)
+        .style("stroke", "rgb(6,120,155)")
+        .style("stroke-width", 2);            
+};
+
+var color = d3.scale.category20();
+
+var force = d3.layout.force()
+    .charge(-100)
+    .linkDistance(40)
+    .size([width, height]);
+
+// force.charge(function(a,b,c,d) {
+// 	console.log(b);
+// });
+
+// var svg = d3.select("body").append("svg")
+//     .attr("width", width)
+//     .attr("height", height);
+
+//var data = "miserables.json";
+var data = "data.json";
+
+d3.json(data, function(error, graph) {
+  if (error) throw error;
+
+  force
+      .nodes(graph.nodes)
+      .links(graph.links)
+      .start();
+
+  var link = svg.selectAll(".link")
+      .data(graph.links)
+      .enter().append("line")
+      .attr("class", "link")
+      .style("stroke-width", function(d) { return Math.sqrt(d.value); });
+
+  var node = svg.selectAll(".node")
+      .data(graph.nodes)
+      .enter().append("circle")
+      .attr("class", "node")
+      .attr("r", radius)
+      .style("fill", function(d) { return color(d.group); })
+      .call(force.drag);
+
+  node.append("title")
+      .text(function(d) { return d.name; });
+
+
+  function constrain(orientation,node) {
+	 if (orientation === 'x')
+	 {
+		if (node.x < xMin) node.x = xMin;
+		else if (node.x > xMax) node.x = xMax;
+		
+		if (node.type === 'column')
+		{
+			node.x = gridSize * node.column + gridSize/2;
+		}
+     }
+	 else if(orientation === 'y')
+	 {
+		if (node.y < yMin) node.y = yMin;
+		else if (node.y > yMax) node.y = yMax;
+		
+		if (node.type === 'row')
+		{
+			node.y = gridSize * node.row + gridSize/2;
+		}			 
+	 }
+  }
+  
+  force.on("tick", function() {
+    link.attr("x1", function(d) { 
+    	constrain('x', d.source);
+   		return d.source.x; 
+    }).attr("y1", function(d) {
+    	constrain('y', d.source);
+    	return d.source.y; 
+    }).attr("x2", function(d) {
+    	constrain('x', d.target);
+    	return d.target.x;
+    }).attr("y2", function(d) { 
+    	constrain('y', d.target);
+    	return d.target.y; 
+	});
+
+    node.attr("cx", function(d) {
+    	constrain('x', d);
+    	return d.x; 
+    }).attr("cy", function(d) {
+    	constrain('y', d);
+    	return d.y;
+    });
+  });
+});
+
+
+
+</script>
