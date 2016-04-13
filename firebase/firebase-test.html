@@ -17,11 +17,20 @@
 		
 		<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
 		
-		<link href="firebase-data.html" rel="import">
+		<link href="tm-survey.html" rel="import">
+	
+		<style>
+			body {
+				padding: 20px;
+			}
+			body > h3 {
+				text-align:center;
+			}
+		</style>
 	</head>
 	
 	<body>
-		<h3>Test Firebase Web Component</h3>
-		<firebase-data></firebase-data>
+		<h3>Test Firebase Driven Application</h3>
+		<tm-survey id="aaa" path="https://incandescent-heat-8795.firebaseio.com/survey"></tm-survey>
 	</body>
 </html>

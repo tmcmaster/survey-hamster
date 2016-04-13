@@ -24,9 +24,11 @@
 <link rel="import" href="../bower_components/paper-styles/color.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/firebase-element/firebase.html">
 <link rel="import" href="../bower_components/firebase-element/firebase-document.html">
+<link rel="import" href="../bower_components/firebase-element/firebase-collection.html">
 
-<dom-module id="firebase-data" extends="div">
+<dom-module id="firebase-data" extends="div" data-args="path">
 
     <style is="custom-style">
         .horizontal-section {
@@ -45,71 +47,61 @@
             <paper-button tabindex="0" class="custom"><iron-icon icon="clear"></iron-icon>cancel</paper-button>
         </div>
         
-        <firebase-document
-            location="https://incandescent-heat-8795.firebaseio.com/ccc"
-            data="{{ccc}}" log></firebase-document>
+        <firebase-document location="https://incandescent-heat-8795.firebaseio.com/ccc" 
+                           data="{{ccc}}" log></firebase-document>
+                           
+        <firebase-document location="https://incandescent-heat-8795.firebaseio.com/survey" 
+                           data="{{survey}}" log></firebase-document>
          
         <paper-input label="Name" value="[[ccc.name]]" readonly="true"></paper-input> 
         <paper-input label="Age" value="{{ccc.age}}"></paper-input> 
+        <paper-input label="FFF" value="{{ccc.fff}}"></paper-input>
         
         <span>[[ccc.name]]</span>
 
-        <!--template is="dom-repeat" items="{{survey.definition.page}}" as="page">
-            <h2>{{page.title}}</h2>
-            <template is="dom-repeat" items="{{page.question}}" as="question">
-                <h3>[[question.label]] : [[question.type]]</h3>
-            </template>
-        </template-->
+        <h2>-- {{survey.definition.title}} --</h2>
+        <span>-- {{path}} --</span>
+        <paper-input label="Firebase URL" value="{{path}}"></paper-input>
+        
+        <firebase-collection id="firebase" 
+                             location="{{path}}/definition/page"
+                             data="{{pages}}"></firebase-collection>
+                             
+        <template is="dom-repeat" items="{{pages}}" as="page">
+            <h2>- {{page.title}} -</h2>
+            <!--<template is="dom-repeat" items="{{page.question}}" as="question">-->
+            <!--    <h3>[[question.label]] : [[question.type]]</h3>-->
+            <!--</template>-->
+        </template>
         
     </template>
     
     <script>
-        
-        Polymer({
+        window.Polymer({
             is: "firebase-data",
 
             properties: {
+                path: {
+                    type: String,
+                    value: 'ddfgdfg',
+                    notify: true
+                },
                 ccc: {
                     type: Object
                 },
-            },
-            /*"ready" : function() {
-                this.survey = {
-                    definition : {
-                        page : [
-                            {
-                                "title" : "Page One",
-                                "question" : [ 
-                                    {
-                                        "label" : "Name",
-                                        "type" : "string"
-                                    }, {
-                                        "label" : "Age",
-                                        "type" : "integer"
-                                    }
-                                ]
-                            }, {
-                                "title" : "Page Two"
-                            }
-                        ]
-                    }, 
-                    "instance" : [
-                        {
-                            "page" : [
-                                {
-                                    "question" : [
-                                        {
-                                            "value" : "Ben"
-                                        }, {
-                                            "value" : 22
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
+                survey: {
+                    type: Object
+                },
+                firebaseURL: {
+                  type: String,
+                  computed: '_firebaseURL(path)'
                 }
-            }*/
+            },
+            "ready" : function() {
+            },
+            _firebaseURL: function(user){
+                return 'https://incandescent-heat-8795.firebaseio.com/survey/definition/page';
+              }
         });
 
     </script>

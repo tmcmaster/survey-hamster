@@ -1,0 +1,171 @@
+<!--
+
+    Firebase Data Component.
+
+    Author: Tim McMaster
+    
+-->
+
+<link href="../bower_components/polymer/polymer.html" rel="import">
+<link href="../bower_components/paper-material/paper-material.html" rel="import">
+<link href="../bower_components/paper-ripple/paper-ripple.html" rel="import">
+<link href="../bower_components/paper-behaviors/paper-button-behavior.html" rel="import">
+<link href="../bower_components/iron-flex-layout/iron-flex-layout.html" rel="import">
+
+<link href="../bower_components/paper-drawer-panel/paper-drawer-panel.html" rel="import">
+<link href="../bower_components/paper-header-panel/paper-header-panel.html" rel="import">
+<link href="../bower_components/paper-toolbar/paper-toolbar.html" rel="import">
+<link href="../bower_components/paper-icon-button/paper-icon-button.html" rel="import">
+<link href="../bower_components/paper-menu/paper-menu.html" rel="import">	
+<link href="../bower_components/paper-item/paper-item.html" rel="import">
+<link href="../bower_components/paper-input/paper-input.html" rel="import">
+<link href="../bower_components/iron-icons/iron-icons.html" rel="import">
+
+<link rel="import" href="../bower_components/paper-styles/color.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/firebase-element/firebase.html">
+<link rel="import" href="../bower_components/firebase-element/firebase-document.html">
+<link rel="import" href="../bower_components/firebase-element/firebase-collection.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+
+<style is="custom-style" include="iron-flex iron-flex-alignment"></style>
+
+<dom-module id="tm-survey" extends="div" data-args="path">
+
+    <style is="custom-style">
+        .debug.hide {
+            display: none;
+        }
+        
+        .horizontal-section {
+            min-width: 130px;
+            margin-bottom: 20px;
+        }
+        
+        .flex-vertical {
+            @apply(--layout-vertical);
+            //height: 220px;
+        }
+        
+        .flexchild-vertical {
+            @apply(--layout-flex);
+        }
+        
+        .flex-horizontal {
+            @apply(--layout-horizontal);
+        }
+        
+        .flexchild {
+            @apply(--layout-flex);
+        }
+        
+        .flex-center-justified {
+            @apply(--layout-horizontal);
+            @apply(--layout-center-justified);
+        }
+        
+        .container {
+            //background: white;
+            padding:20px;
+        }
+        
+        .datalist {
+            padding:10px 10px 10px 0px;
+        }
+    
+    
+        .iron-selected {
+            background-color: #4285f4;
+            color: white;
+            padding:5px;
+        }
+    </style>
+        
+    <template>
+        
+        <firebase-document location="{{path}}" data="{{survey}}" log></firebase-document>
+        <firebase-document location="{{pageURL}}" data="{{currentPage}}" log></firebase-document>
+        <firebase-document location="{{dataURL}}" data="{{currentData}}" log></firebase-document>
+
+        <paper-material elevation="4" class="container flex-vertical">
+            
+            <paper-tabs selected="{{selectedPageId}}">
+                <template is="dom-repeat" items="{{survey.definition.page}}" as="page">
+                    <paper-tab>{{page.title}}</paper-tab>
+                </template>
+            </paper-tabs>
+            <div class="flexchild-vertical">
+                <div class="flex-horizontal">
+                    <div class="datalist">
+                        <iron-selector selected="{{selectedDataId}}">
+                            <template is="dom-repeat" items="{{survey.instance}}" as="data">
+                                <div>{{data.name}}</div>
+                            </template>
+                        </iron-selector>
+                    </div>
+                    <div class="flexchild-horizontal">
+                        <template is="dom-repeat" items="{{currentPage.question}}" as="question">
+                            <paper-input label="{{question.label}} ({{question.type}})" value="[[getValue(currentData,index)]]"></paper-input>
+                            <!--<h3>-- {{question.label}} : {{question.type}} --</h3>-->
+                        </template>
+                    </div>
+                </div>
+            </div>       
+            <!--<div class="container flex-center-justified">-->
+            <!--    <paper-button on-tap="test">Test</paper-button>-->
+            <!--</div>-->
+        </paper-material>
+ 
+        <fieldset class="debug hide">
+            <legend>Debugging Panel</legend>
+            <paper-input label="Firebase URL" value="{{path}}"></paper-input>
+            <paper-input label="Selected Page" value="{{selectedPageId}}"></paper-input>
+    
+            <h2>Currrent Page ID: {{pageURL}}</h2>
+            <h2>Currrent Page title: {{currentPage.title}}</h2>
+        </fieldset>
+        
+    </template>
+    
+    <script>
+        (function(Polymer) {
+            var PAGE_BASE_URL = 'https://incandescent-heat-8795.firebaseio.com/survey/definition/page/';
+            var DATA_BASE_URL = 'https://incandescent-heat-8795.firebaseio.com/survey/instance/';
+            
+            function test() {
+                console.log("DEBUG: ");
+            }
+            Polymer({
+                is: "tm-survey",
+    
+                properties: {
+                    path: { type: String, value: 'ddfgdfg', notify: true },
+                    selectedPageId: { type: String, value: 0 },
+                    selectedDataId: { type: String, value: 0 },
+                    survey: { type: Object },
+                    pageURL: { type: String, computed: '_pageURL(selectedPageId)' },
+                    dataURL: { type: String, computed: '_dataURL(selectedDataId, selectedPageId)' }
+                },
+                getValue : function(data, index) {
+                    return data.question[index].value; 
+                },
+                ready : function() {
+                    console.log('Ready to go!');
+                },
+                _pageURL: function(selectedPageId){
+                    return PAGE_BASE_URL + selectedPageId;
+                },
+                _dataURL: function(selectedDataId,selectedPageId){
+                    return DATA_BASE_URL + selectedDataId  + '/page/' + selectedPageId;
+                },
+                test: function() {  
+                    console.log('Testing');
+                }
+            });
+        })(window.Polymer);
+
+    </script>
+    
+</dom-module>
