@@ -1,0 +1,155 @@
+{
+    "name": "RussellMcMaster",
+    "firstname" : "Russell",
+    "lastname" : "McMaster",
+    "children": [
+        {
+            "name": "RexMcMaster",
+            "firstname" : "Rex",
+            "lastname" : "McMaster",
+            "partner" : "Robyn Bennet",
+            "children": [
+                {
+                    "name": "TimMcMaster",
+                    "firstname" : "Tim",
+                    "lastname" : "McMaster",
+                    "partner" : "Pavline Shukuroglou",
+                    "children": [
+                        {
+                            "name": "JordanMcMaster",
+                            "firstname" : "Jordan",
+                            "lastname" : "McMaster"
+                        },
+                        {
+                            "name": "AmelieMcMaster", 
+                            "firstname" : "Amelie",
+                            "lastname" : "McMaster"
+                        }
+                    ]
+                },
+                {
+                    "name": "JesseMcMaster",
+                    "firstname" : "Jesse",
+                    "lastname" : "McMaster",
+                    "partner" : "Melanie Tait",
+                    "children": [
+                        {
+                            "name": "Reuben",
+                            "firstname" : "Reuben",
+                            "lastname" : "Tait"
+                        },
+                        {
+                            "name": "Eammon",
+                            "firstname" : "Eammon",
+                            "lastname" : "Tait"
+                        },
+                        {
+                            "name": "Tobie",
+                            "firstname" : "Tobie",
+                            "lastname" : "Tait"
+                        }
+                    ]
+                },
+                {
+                    "name": "SarahMcMaster",
+                    "firstname" : "Sarah",
+                    "lastname" : "McMaster",
+                    "children": [
+                        {
+                            "name": "CosmoAdams",
+                            "firstname" : "Cosmo",
+                            "lastname" : "Adams"
+                        },
+                        {
+                            "name": "MiekeAdams",
+                            "firstname" : "Mieke",
+                            "lastname" : "Adams"
+                        }
+                    ]
+                },
+                {
+                    "name": "FinnMcMaster",
+                    "firstname" : "Finn",
+                    "lastname" : "McMaster",
+                    "children": [
+                        {
+                            "name": "IndigoMcMaster",
+                            "firstname" : "Indigo",
+                            "lastname" : "McMaster"
+                        },
+                        {
+                            "name": "NixieMcMaster",
+                            "firstname" : "Nixie",
+                            "lastname" : "McMaster"
+                        }
+                    ]
+                },
+                {
+                    "name": "ZoeMcMaster",
+                    "firstname" : "Zoe",
+                    "lastname" : "McMaster",
+                    "children": [
+                        {
+                            "name": "SiaSirros",
+                            "firstname" : "Sia",
+                            "lastname" : "Sirros"
+                        },
+                        {
+                            "name": "HarveyCukier",
+                            "firstname" : "Harvey",
+                            "lastname" : "Cukier"
+                        },
+                        {
+                            "name": "QuinnCukier",
+                            "firstname" : "Quinn",
+                            "lastname" : "Cukier"
+                        }
+                    ]
+                },
+                {
+                    "name": "HannahMcMaster",
+                    "firstname" : "Hannah",
+                    "lastname" : "McMaster",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "WayneMcMaster",
+            "firstname" : "Wayne",
+            "lastname" : "McMaster",
+            "children": [
+                {
+                    "name": "CaseyMcMaster",
+                    "firstname" : "Cassie",
+                    "lastname" : "???",
+                    "children": [
+                        {
+                            "name": "Bailey???",
+                            "firstname" : "Bailey",
+                            "lastname" : "???"
+                        },
+                        {
+                            "name": "JessieMcMaster",
+                            "firstname" : "Jessie",
+                            "lastname" : "???"
+                        }
+
+                    ]
+                },
+                {
+                    "name": "SommerMcMaster",
+                    "firstname" : "Sommer",
+                    "lastname" : "McMaster",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "Fiona???",
+            "firstname" : "Fiona",
+            "lastname" : "???",
+            "children": []
+        }
+    ]
+}

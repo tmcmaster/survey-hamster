@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Flower Demo</title>
+
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+  <script type="text/javascript" src="../lib/d3.js"></script>
+  <script type="text/javascript" src="../lib/d3.geom.js"></script>
+  <script type="text/javascript" src="../lib/d3.layout.js"></script>
+  <script type="text/javascript" src="lib/CodeFlower.js"></script>
+  
+  <script type="text/javascript" src="flower.js"></script>
+  <link type="text/css" rel="stylesheet" href="flower.css" />
+</head>
+
+<body>
+  <div id="vis"></div>
+  
+  <script type="text/javascript">
+    //window.d3.flower('#vis', '../sunburst/data/family.json');
+    window.d3.flower('#vis', 'data/family.json');
+  </script>
+
+</body>
+
+</html>

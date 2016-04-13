@@ -1,0 +1,88 @@
+{
+    "name": "McMasterKids",
+    "firstname" : "Tim, Jesse, Sarah, Finn, Zoe & Hannah",
+    "lastname" : "",
+    "children": [
+        {
+            "name": "ParentRex",
+            "firstname" : "Rex",
+            "lastname" : "McMaster",
+            "role" : "Father",
+            "children": [
+                {
+                    "name": "WayneMcMaster",
+                    "firstname" : "Wayne",
+                    "lastname" : "McMaster",
+                    "role" : "Uncle",
+                    "children": [
+                        {
+                            "name": "CaseyMcMaster",
+                            "firstname" : "Cassie",
+                            "lastname" : "???",
+                            "role" : "Cousin",
+                            "children": []
+                        },
+                        {
+                            "name": "SommerMcMaster",
+                            "firstname" : "Sommer",
+                            "lastname" : "McMaster",
+                            "role" : "Cousin",
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Fiona???",
+                    "firstname" : "Fiona",
+                    "lastname" : "???",
+                    "role" : "Aunty",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "ParentRobyn",
+            "firstname" : "Robyn",
+            "lastname" : "Bennet",
+            "role" : "Mother",
+            "children": [
+                {
+                    "name": "VickyBennet",
+                    "firstname" : "Vicky",
+                    "lastname" : "Bennet",
+                    "role" : "Aunty",
+                    "children": [
+                        {
+                            "name": "Eryn Flynn",
+                            "firstname" : "Eryn",
+                            "lastname" : "Flynn",
+                            "role" : "Cousin",
+                            "children": []
+                        },
+                        {
+                            "name": "Justyn Flynn",
+                            "firstname" : "Justin",
+                            "lastname" : "Flynn",
+                            "role" : "Cousin",
+                            "children": []
+                        },
+                        {
+                            "name": "Bree Flynn",
+                            "firstname" : "Bree",
+                            "lastname" : "Flynn",
+                            "role" : "Cousin",
+                            "children": []
+                        },
+                        {
+                            "name": "Kier Flynn",
+                            "firstname" : "Kier",
+                            "lastname" : "Flynn",
+                            "role" : "Cousin",
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }        
+    ]
+}

@@ -1,0 +1,129 @@
+[{
+    "name": "McMasterKids",
+    "firstname" : "Jordy &",
+    "lastname" : "Amelie",
+    "children": [
+        {
+            "name": "TimMcMaster",
+            "firstname" : "Tim",
+            "lastname" : "McMaster",
+            "role" : "Father",
+            "children" : [
+                {
+                    "name": "JesseMcMaster",
+                    "firstname" : "Jesse",
+                    "lastname" : "McMaster",
+                    "role" : "Uncle",
+                    "children": [
+                        {
+                            "name": "Reuben",
+                            "firstname" : "Reuben",
+                            "lastname" : "Tait",
+                            "role" : "Cousin"
+                        },
+                        {
+                            "name": "Eammon",
+                            "firstname" : "Eammon",
+                            "lastname" : "Tait",
+                            "role" : "Cousin"
+                        },
+                        {
+                            "name": "Tobie",
+                            "firstname" : "Tobie",
+                            "lastname" : "Tait",
+                            "role" : "Cousin"
+                        }
+                    ]
+                },
+                {
+                    "name": "SarahMcMaster",
+                    "firstname" : "Sarah",
+                    "lastname" : "McMaster",
+                    "role" : "Aunty",
+                    "children": [
+                        {
+                            "name": "CosmoAdams",
+                            "firstname" : "Cosmo",
+                            "lastname" : "Adams",
+                            "role" : "Cousin"
+                        },
+                        {
+                            "name": "MiekeAdams",
+                            "firstname" : "Mieke",
+                            "lastname" : "Adams",
+                            "role" : "Cousin"
+                        }
+                    ]
+                },
+                {
+                    "name": "FinnMcMaster",
+                    "firstname" : "Finn",
+                    "lastname" : "McMaster",
+                    "role" : "Uncle",
+                    "children": [
+                        {
+                            "name": "IndigoMcMaster",
+                            "firstname" : "Indigo",
+                            "lastname" : "McMaster",
+                            "role" : "Cousin"
+                        },
+                        {
+                            "name": "NixieMcMaster",
+                            "firstname" : "Nixie",
+                            "lastname" : "McMaster",
+                            "role" : "Cousin"
+                        }
+                    ]
+                },
+                {
+                    "name": "ZoeMcMaster",
+                    "firstname" : "Zoe",
+                    "lastname" : "McMaster",
+                    "role" : "Aunty",
+                    "children": [
+                        {
+                            "name": "SiaSirros",
+                            "firstname" : "Sia",
+                            "lastname" : "Sirros",
+                            "role" : "Cousin"
+                        },
+                        {
+                            "name": "HarveyCukier",
+                            "firstname" : "Harvey",
+                            "lastname" : "Cukier",
+                            "role" : "Cousin"
+                        },
+                        {
+                            "name": "QuinnCukier",
+                            "firstname" : "Quinn",
+                            "lastname" : "Cukier",
+                            "role" : "Cousin"
+                        }
+                    ]
+                },
+                {
+                    "name": "HannahMcMaster",
+                    "firstname" : "Hannah",
+                    "lastname" : "McMaster",
+                    "role" : "Aunty",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "PavlinaShukuroglou",
+            "firstname" : "Pavlina",
+            "lastname" : "Shukuroglou",
+            "role" : "Mother",
+            "children" : [
+                {
+                    "name": "VickyShukuroglou",
+                    "firstname" : "Vicky",
+                    "lastname" : "Shukuroglou",
+                    "role" : "Aunty",
+                    "children" : []
+                }
+            ]
+        }
+    ]
+}]
