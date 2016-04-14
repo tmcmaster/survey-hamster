@@ -1,0 +1,248 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+
+<link href="../../bower_components/paper-material/paper-material.html" rel="import">
+<link href="../../bower_components/paper-ripple/paper-ripple.html" rel="import">
+<link href="../../bower_components/paper-behaviors/paper-button-behavior.html" rel="import">
+<link href="../../bower_components/iron-flex-layout/iron-flex-layout.html" rel="import">
+
+<link href="../../bower_components/paper-drawer-panel/paper-drawer-panel.html" rel="import">
+<link href="../../bower_components/paper-header-panel/paper-header-panel.html" rel="import">
+<link href="../../bower_components/paper-toolbar/paper-toolbar.html" rel="import">
+<link href="../../bower_components/paper-icon-button/paper-icon-button.html" rel="import">
+<link href="../../bower_components/paper-menu/paper-menu.html" rel="import">	
+<link href="../../bower_components/paper-item/paper-item.html" rel="import">
+<link href="../../bower_components/paper-input/paper-input.html" rel="import">
+<link href="../../bower_components/iron-icons/iron-icons.html" rel="import">
+
+<link rel="import" href="../../bower_components/paper-styles/color.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
+
+<style is="custom-style" include="iron-flex iron-flex-alignment"></style>
+
+<dom-module id="tm-console">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      
+    .container {
+      @apply(--layout-horizontal);
+    }
+    .flexchild {
+      @apply(--layout-flex);
+    }
+    .vertical {
+      @apply(--layout-vertical);
+    }
+    
+    div.container {
+      //border: solid gray 2px;
+    }
+    
+    div.container > div {
+      display: inline-block;
+    }
+    paper-item {
+      //border: solid red 2px;
+    }
+    
+    paper-material {
+      box-sizing: border-box;
+      height:700px;
+      width:900px;
+      padding:15px 15px 20px 15px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    
+    .container {
+      //height: 100%;
+    }
+    
+    .container > paper-item {
+      padding:5px;
+    }
+    iron-list {
+      width:400px;
+      height: 100%;
+    }
+    
+    paper-card {
+      padding: 10px;
+    }
+    paper-card.aa {
+      margin-bottom:10px;
+      width:100%;
+      //height:100px;
+    }
+    
+    paper-card.list {
+      box-sizing: border-box;
+      width:100%;
+      height:100%;
+    }
+    
+    .aa.operations {
+      height:400px;
+    }
+    
+    .aa.summary {
+      height:255px;
+    }
+    
+    paper-item.log {
+      height:40px;
+    }
+
+    paper-card {    
+      --paper-card-header: {
+          @apply(--layout-vertical);
+          @apply(--layout-center);
+      };
+    }
+      table {
+        border:solid red 1px;
+      }
+    </style>
+    
+    <paper-material elevation="4">
+      <div class="container">
+        <paper-item>
+          <paper-item-body>
+             <paper-card class="list" heading="Operation Logs">
+                <iron-list items="[[items]]" as="item">
+                  <template>
+                    <paper-item class="log">
+                      <paper-item-body two-line>
+                        <div>[[item.message]]</div>
+                        <div secondary>([[item.type]])</div>
+                      </paper-item-body>
+                    </paper-item>
+                  </template>
+                </iron-list>
+              </paper-card>
+          </paper-item-body>
+        </paper-item>
+        <paper-item class="flexchild">
+          <paper-item-body class="bb vertical" two-line>
+             <paper-card class="aa operations" heading="Operations">
+                <div>Operations</div>
+             </paper-card>
+             <paper-card class="aa summary" heading="Summary">
+                <div>Summary</div>
+             </paper-card>
+          </paper-item-body>
+        </paper-item>
+      </div>
+    </paper-material>
+
+    <!--<paper-material elevation="4" class="container flex-vertical">-->
+      
+    <!--  <iron-list items="[[items]]" as="item">-->
+    <!--    <template>-->
+    <!--        <paper-item>-->
+    <!--          <paper-item-body two-line>-->
+    <!--            <div>[[item.message]]</div>-->
+    <!--            <div secondary>([[item.type]])</div>-->
+    <!--          </paper-item-body>-->
+    <!--        </paper-item>-->
+  
+          <!--<paper-card elevation="5" heading="[[item.message]]">-->
+          <!--  <div class="card-content">-->
+          <!--      <div class="cafe-header">[[item.message]] ([[item.type]])</div>-->
+          <!--  </dev>-->
+          <!--</paper-card>-->
+          
+          <!--<div>-->
+          <!--  <div class="primary">[[item.message]]</div>-->
+          <!--  <div tabindex$="[[tabIndex]]">-->
+          <!--    <div class="pad">-->
+          <!--      <div class="primary">[[item.type]]</div>-->
+          <!--    </div>-->
+          <!--</div>-->
+        <!--</div>-->
+          <!--<span class="paper-font-body1">Item: {{item.message}} : {{item.type}}</span>-->
+    <!--    </template>-->
+    <!--  </iron-list>-->
+      
+    <!--  </paper-material>-->
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+  
+      Polymer({
+        is: 'tm-console',
+        properties: {
+          items: {
+            type: Array,
+            notify: true,
+            value : [
+              undefined,undefined,undefined,undefined,undefined,
+              undefined,undefined,undefined,undefined,undefined,
+              undefined,undefined,undefined,undefined,undefined
+              ]
+          }
+        },
+        
+        addItem : function(item) {
+            this.items.unshift(item);
+            var self = this;
+            setTimeout(function() { self.querySelector('iron-list').notifyResize()}, 100);
+            console.log('Added element to end of array')
+        },
+        ready: function() {
+          // this.items = [];
+          // for (var i = 0; i < 10; i++) {
+          //       this.items.push(1);
+          // }
+          
+          var data = [
+            {
+              session:'123e4567-e89b-12d3-a456-426655440000',
+              transaction:'123e4567-e89b-12d3-a456-426655440000',
+              operation: 'login',
+              step:'API Gateway',
+              timestamp:'2016-01-02 10:30:36' 
+            }
+          ];
+          var data = [
+            {message: 'line 1', type:'A'},
+            {message: 'line 2', type:'B'},
+            {message: 'line 3', type:'C'},
+            {message: 'line 4', type:'D'},
+            {message: 'line 5', type:'A'},
+            {message: 'line 6', type:'B'},
+            {message: 'line 7', type:'C'},
+            {message: 'line 8', type:'D'},
+            {message: 'line 9', type:'A'},
+            {message: 'line 10', type:'B'},
+            {message: 'line 11', type:'C'},
+            {message: 'line 12', type:'D'}
+          ];
+          var self = this;
+          
+          setInterval(function() {
+            if (data.length > 0) {
+              var item = data.shift();
+              self.addItem(item);
+              data.push(item)
+            }
+            else
+            {
+              console.log('There is currently no data to process.');
+            }
+          }, 2000);
+
+        }
+      });
+    })();
+  </script>
+</dom-module>
