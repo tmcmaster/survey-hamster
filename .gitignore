@@ -14,3 +14,6 @@ hs_err_pid*
 
 clone/
 bower_components/
+.c9/
+__RESTORE__
+node_modules/

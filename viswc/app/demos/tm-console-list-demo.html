@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<script src="../bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+		
+		<link href="../elements/tm-console-list/tm-console-list.html" rel="import">
+
+		<style>
+			body { border: solid lightgrey 1px; padding:10px;}
+			h2 {text-align:center}
+			tm-aster-plot {width:500px;margin-left: auto;margin-right: auto;}
+		</style>
+		
+	</head>
+	
+	<body>
+		<h2>Console List - Polymer Element - Demo</h2>
+		<tm-console-list size="7"/>
+		
+		<script>
+			var list = document.getElementsByTagName('tm-console-list')[0];
+
+			var data = [
+	            {message: 'line 1', type:'A'},
+	            {message: 'line 2', type:'B'},
+	            {message: 'line 3', type:'C'},
+	            {message: 'line 4', type:'D'},
+	            {message: 'line 5', type:'A'},
+	            {message: 'line 6', type:'B'},
+	            {message: 'line 7', type:'C'},
+	            {message: 'line 8', type:'D'},
+	            {message: 'line 9', type:'A'},
+	            {message: 'line 10', type:'B'},
+	            {message: 'line 11', type:'C'},
+	            {message: 'line 12', type:'D'}
+	        ];
+
+			// Setup interval to add data to the list	          
+	        setInterval((function(list, data) {
+	        	console.log('Returning closure that will add next item onto the list')
+	        	return function() {
+	           		if (data.length > 0) {
+		                var item = data.shift();
+		                list.addItem(item);
+		                data.push(item)
+		            }
+		            else
+		            {
+		                console.log('There is currently no data to process.');
+		            }
+	        	}
+	        })(list,data), 2000);
+		</script>
+	</body>
+</html>

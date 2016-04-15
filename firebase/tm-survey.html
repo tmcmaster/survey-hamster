@@ -118,14 +118,14 @@
             <!--</div>-->
         </paper-material>
  
-        <fieldset class="debug hide">
-            <legend>Debugging Panel</legend>
-            <paper-input label="Firebase URL" value="{{path}}"></paper-input>
-            <paper-input label="Selected Page" value="{{selectedPageId}}"></paper-input>
+        <!--<fieldset class="debug hide">-->
+        <!--    <legend>Debugging Panel</legend>-->
+        <!--    <paper-input label="Firebase URL" value="{{path}}"></paper-input>-->
+        <!--    <paper-input label="Selected Page" value="{{selectedPageId}}"></paper-input>-->
     
-            <h2>Currrent Page ID: {{pageURL}}</h2>
-            <h2>Currrent Page title: {{currentPage.title}}</h2>
-        </fieldset>
+        <!--    <h2>Currrent Page ID: {{pageURL}}</h2>-->
+        <!--    <h2>Currrent Page title: {{currentPage.title}}</h2>-->
+        <!--</fieldset>-->
         
     </template>
     
@@ -134,9 +134,6 @@
             var PAGE_BASE_URL = 'https://incandescent-heat-8795.firebaseio.com/survey/definition/page/';
             var DATA_BASE_URL = 'https://incandescent-heat-8795.firebaseio.com/survey/instance/';
             
-            function test() {
-                console.log("DEBUG: ");
-            }
             Polymer({
                 is: "tm-survey",
     
@@ -159,9 +156,6 @@
                 },
                 _dataURL: function(selectedDataId,selectedPageId){
                     return DATA_BASE_URL + selectedDataId  + '/page/' + selectedPageId;
-                },
-                test: function() {  
-                    console.log('Testing');
                 }
             });
         })(window.Polymer);

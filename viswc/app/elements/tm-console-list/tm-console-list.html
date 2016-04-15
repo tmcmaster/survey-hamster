@@ -1,0 +1,81 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../../bower_components/paper-styles/color.html">
+
+<dom-module id="tm-console-list">
+  <template>
+  
+    <style>
+      iron-list {
+        width:100%;
+        height: 100%;
+      }
+      
+      paper-card {
+        padding: 10px;
+        box-sizing: border-box;
+        width:100%;
+        height:100%;
+        --paper-card-header: {
+            @apply(--layout-vertical);
+            @apply(--layout-center);
+        };
+      }
+      
+      paper-item {
+        height:40px;
+      }
+    </style>
+    
+    <paper-card>
+      <iron-list items="[[items]]" as="item">
+        <template>
+          <paper-item class="log">
+            <paper-item-body two-line>
+              <div>[[item.message]]</div>
+              <div secondary>([[item.type]])</div>
+            </paper-item-body>
+          </paper-item>
+        </template>
+      </iron-list>
+    </paper-card>
+  
+  </template>
+
+  <script>
+    (function(Polymer) {
+      'use strict';
+  
+      Polymer({
+        is: 'tm-console-list',
+        properties: {
+          size: {
+            type: Number,
+            notify: true,
+            value: 5
+          },
+          items: {
+            type: Array,
+            notify: true,
+            value : [ undefined, undefined ]
+          }
+        },
+        
+        addItem : function(item) {
+            this.items.unshift(item);
+            var self = this;
+            setTimeout(function() { self.querySelector('iron-list').notifyResize()}, 100);
+            console.log('Added element to end of array')
+        },
+        ready: function() {
+          this.items = new Array(this.size)
+          for (var i = 0; i < this.size; i++) {
+            this.items[i] = undefined
+          }
+        }
+      });
+    })(window.Polymer);
+  </script>
+</dom-module>
