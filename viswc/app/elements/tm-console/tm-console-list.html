@@ -1,0 +1,82 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../../bower_components/paper-styles/color.html">
+
+<link rel="import" href="tm-console-list-item.html">
+
+<dom-module id="tm-console-list">
+  <template>
+  
+    <style>
+      iron-list {
+        width:100%;
+        height: 100%;
+      }
+      
+      paper-card {
+        padding: 10px;
+        box-sizing: border-box;
+        width:100%;
+        height:100%;
+      }
+    </style>
+    
+    <paper-card heading="Activity Log">
+      <iron-list items="[[items]]" as="item">
+        <template>
+          
+          <tm-console-list-item
+            session="[[item.session]]"
+            transaction="[[item.transaction]]" 
+            status="{{item.status}}"
+            operation="[[item.operation]]"
+            step="[[item.step]]" 
+            timestamp="[[item.timestamp]]" />
+
+        </template>
+      </iron-list>
+    </paper-card>
+  
+  </template>
+
+  <script>
+    (function(Polymer) {
+      'use strict';
+  
+      Polymer({
+        is: 'tm-console-list',
+        properties: {
+          size: {
+            type: Number,
+            notify: true,
+            value: 5
+          },
+          items: {
+            type: Array,
+            notify: true
+          }
+        },
+        addItem : function(item) {
+          console.log('TM-CONSOLE-LIST: Item Added')
+            this.items.unshift(item);
+            setTimeout(this._refresh, 100);
+            console.log('Added element to end of array')
+        },
+        ready: function() {
+          // setup a refresh function, for callbacks to use
+          this._refresh = (function(self) {
+              return function() {self.querySelector('iron-list').notifyResize();
+          }})(this);
+          
+          // setup an empty list of the the required size
+          this.items = new Array(this.size)
+          for (var i = 0; i < this.size; i++) {
+            this.items[i] = undefined
+          }
+        }
+      });
+    })(window.Polymer);
+  </script>
+</dom-module>

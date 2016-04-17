@@ -1,0 +1,69 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../../bower_components/paper-styles/color.html">
+
+<dom-module id="tm-console-operations">
+  <template>
+  
+    <style>
+      paper-card {
+        padding: 10px;
+        box-sizing: border-box;
+        width:100%;
+        height:300px;
+      }
+      span.graph {
+        float:right;
+        padding-top:110px;
+      }
+    </style>
+    <paper-card heading="Operations">
+      <table width="100%">
+        <thead>
+          <tr>
+              <th></th><th align="right">Count</th><th align="right">Warning</th><th align="right">Error</th>
+          </tr>
+        </thead>
+        <template is="dom-repeat" items="{{items}}">
+          <tr>
+            <td>{{item.operation}}</td>
+            <td align="right"><a href="#" title="List all logs for the operation during the last hour.">{{item.count}}</a></td>
+            <td align="right"><a href="#" title="List warning logs for the operation during the last hour.">{{item.warn}}</a></td>
+            <td align="right"><a href="#" title="List error logs for the operation during the last hour.">{{item.error}}</a></td>
+          </tr>
+        </template>
+      </table>
+      <span class="graph">
+        <a href="/vis/circletree/circletree-demo.html" target="_graph" title="Graph transactions to visualise errors.">Graph</a>
+      </span>
+
+    </paper-card>
+  </template>
+
+  </template>
+
+  <script>
+    (function(Polymer) {
+      'use strict';
+  
+      Polymer({
+        is: 'tm-console-operations',
+        properties: {
+          items: {
+            type: Array,
+            notify: true,
+            value: [
+              {operation:"login",count: 45, warn:5, error: 4},
+              {operation:"getUser",count: 36, warn:1, error: 1},
+              {operation:"getPolicy",count: 34, warn:9, error: 7}
+            ]
+          }
+        },
+        ready: function() {
+        }
+      });
+    })(window.Polymer);
+  </script>
+</dom-module>

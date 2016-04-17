@@ -1,0 +1,127 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../../bower_components/paper-styles/color.html">
+
+<dom-module id="tm-console-list-item">
+  <template>
+  
+    <style>
+      paper-item {
+        box-sizing:border-box;
+        height:30px;
+        width: 100%;
+        padding:0px;
+        /*border: solid red 1px;*/
+      }
+      paper-item-body {
+        height:100%;
+        width: 100%;
+        /*border: solid green 1px;*/
+      }
+      div.row1 {
+        display:inline-block;
+        width:100%;
+        height:12px;
+        /*border:solid blue 1px;*/
+      }
+      div.row2 {
+        display:inline-block;
+        width:100%;
+        height:16px;
+        /*border:solid blue 1px;*/
+      }
+      .session {
+        position:relative;
+        float:left;
+        font-size:12px;
+        color:lightgray;
+      }
+      .transaction {
+        position:relative;
+        float:right;
+        font-size:12px;
+        color:lightgray;
+      }
+      .operation {
+        font-size:14px;
+        color:green;
+      }
+      .step {
+        font-size:14px;
+        color:green;
+      }
+      .timestamp {
+        position:relative;
+        float:right;
+        font-size:14px;
+        color:gray;
+      }
+      .operation.error {
+        color:red;
+      }
+      .step.error {
+        color:red;
+      }
+    </style>
+    
+    <paper-item>
+      <paper-item-body two-line>
+        <div class="row3">
+          <span class$="operation {{status}}">[[operation]]</span>
+          <span class$="step {{status}}">[[step]]</span>
+          <span class="timestamp">[[timestamp]]</span>
+        </div>
+        <div secondary class="row2">
+          <span class="session">[[session]]</span>
+          <span class="transaction">[[transaction]]</span>
+        </div>
+      </paper-item-body>
+    </paper-item>
+
+  </template>
+
+  <script>
+    (function(Polymer) {
+      'use strict';
+  
+      Polymer({
+        is: 'tm-console-list-item',
+        properties: {
+          session: {
+            type: String,
+            notify: true,
+            value: "session"
+          },
+          transaction: {
+            type: String,
+            notify: true,
+            value: "transaction"
+          },
+          operation: {
+            type: String,
+            notify:true,
+            value: "operation"
+          },
+          step: {
+            type: String,
+            notify:true,
+            value: "step"
+          },
+          status: {
+            type: String,
+            notify: true
+          },
+          timestamp: {
+            type: String,
+            notify:true,
+            value: "timestamp"
+          }
+        },
+        ready: function() {
+        }
+      });
+    })(window.Polymer);
+  </script>
+</dom-module>

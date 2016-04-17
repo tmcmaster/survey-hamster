@@ -1,0 +1,149 @@
+{
+    "name": "",
+    "children": [
+        {
+            "name": "login",
+            "children": [
+                {
+                    "name": "OKTA",
+                    "children": [
+                        {
+                            "name": "API Gateway",
+                            "children": [
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" }
+                            ]
+                        },
+                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "getUser",
+            "children": [
+                {
+                    "name": "OKTA",
+                    "children": [
+                        {
+                            "name": "User Service",
+                            "children": [
+                                {
+                                    "name": "API Gateway",
+                                    "children": [
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" }
+                                    ]
+                                },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
+                            ]
+                        },
+                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red"},
+                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "getPolicy",
+            "children": [
+                {
+                    "name": "ESB",
+                    "children": [
+                        {
+                            "name": "Policy Service",
+                            "children": [
+                                {
+                                    "name": "API Gateway",
+                                    "children": [
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
+                                    ]
+                                },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
+                            ]
+                        },
+                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
+                    ]
+                }
+            ]
+        }
+    ]
+}

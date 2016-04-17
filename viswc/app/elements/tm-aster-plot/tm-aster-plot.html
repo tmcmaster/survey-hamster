@@ -99,7 +99,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script src="d3-tip.js"></script>
 
   <script>
-    (function() {
+    (function(d3) {
       'use strict';
       
       function setup(datafile) {
@@ -208,7 +208,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               
         }
       });
-    })();
+    })(window.d3);
   </script>
   
 </dom-module>

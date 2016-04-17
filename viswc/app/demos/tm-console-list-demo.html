@@ -14,29 +14,30 @@
 	
 	<body>
 		<h2>Console List - Polymer Element - Demo</h2>
+		
 		<tm-console-list size="7"/>
 		
 		<script>
-			var list = document.getElementsByTagName('tm-console-list')[0];
+			var list = document.getElementsByTagName("tm-console-list")[0];
 
 			var data = [
-	            {message: 'line 1', type:'A'},
-	            {message: 'line 2', type:'B'},
-	            {message: 'line 3', type:'C'},
-	            {message: 'line 4', type:'D'},
-	            {message: 'line 5', type:'A'},
-	            {message: 'line 6', type:'B'},
-	            {message: 'line 7', type:'C'},
-	            {message: 'line 8', type:'D'},
-	            {message: 'line 9', type:'A'},
-	            {message: 'line 10', type:'B'},
-	            {message: 'line 11', type:'C'},
-	            {message: 'line 12', type:'D'}
+	            {message: "line 1", type:"A"},
+	            {message: "line 2", type:"B"},
+	            {message: "line 3", type:"C"},
+	            {message: "line 4", type:"D"},
+	            {message: "line 5", type:"A"},
+	            {message: "line 6", type:"B"},
+	            {message: "line 7", type:"C"},
+	            {message: "line 8", type:"D"},
+	            {message: "line 9", type:"A"},
+	            {message: "line 10", type:"B"},
+	            {message: "line 11", type:"C"},
+	            {message: "line 12", type:"D"}
 	        ];
 
 			// Setup interval to add data to the list	          
 	        setInterval((function(list, data) {
-	        	console.log('Returning closure that will add next item onto the list')
+	        	console.log("Returning closure that will add next item onto the list")
 	        	return function() {
 	           		if (data.length > 0) {
 		                var item = data.shift();
@@ -45,7 +46,7 @@
 		            }
 		            else
 		            {
-		                console.log('There is currently no data to process.');
+		                console.log("There is currently no data to process.");
 		            }
 	        	}
 	        })(list,data), 2000);

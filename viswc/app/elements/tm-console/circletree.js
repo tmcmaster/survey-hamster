@@ -1,8 +1,8 @@
 (function(d3) {
     d3.circletree = function(selector, datafile) {
 
-        var w = 1280,
-            h = 800,
+        var w = 200,
+            h = 200,
             rx = w / 2,
             ry = h / 2,
             m0,
@@ -41,7 +41,7 @@
                 .enter().append("svg:path")
                 .attr("class", "link")
                 .attr("stroke", function(d) {
-                    return (d.target.color ? d.target.color : "black")
+                    return (d.target.lcolor ? d.target.lcolor : "black")
                 })
                 .attr("d", diagonal);
     
@@ -67,7 +67,6 @@
                 .attr("transform", function(d) {
                     return d.x < 180 ? null : "rotate(180)";
                 })
-                .style('fill', function(d) {return d.color})
                 .text(function(d) {
                     return (d.firstname ? d.firstname + ' ' + d.lastname : d.name);
                 });

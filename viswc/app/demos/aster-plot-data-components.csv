@@ -1,0 +1,6 @@
+"id","order","score","weight","color","label"
+"AGW",1,10,25,"#6CC4A4","API Gateway"
+"US",2,15,20,"#6CC4A4","User Service"
+"PS",3,40,10,"#FEC574","Policy Service"
+"OKTA",4,5,30,"#6CC4A4","OKTA"
+"ESB",5,90,15,"#C32F4B","ESB"

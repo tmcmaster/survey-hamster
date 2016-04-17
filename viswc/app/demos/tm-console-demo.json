@@ -1,68 +1,76 @@
 {
-    list: {
-        data: [{
-            session: '100e4567-e89b-12d3-a456-426655440000',
-            transaction: '101e4567-e89b-12d3-a456-426655440000',
-            operation: 'login',
-            step: 'API Gateway',
-            timestamp: '2016-01-02 10:30:00'
+    "list": {
+        "data": [{
+            "session": "100e4567-e89b-12d3-a456-426655440000",
+            "transaction": "101e4567-e89b-12d3-a456-426655440000",
+            "operation": "login",
+            "step": "API Gateway",
+            "timestamp": "2016-01-02 10:30:00",
+            "status": "success"
         }, {
-            session: '100e4567-e89b-12d3-a456-426655440000',
-            transaction: '101e4567-e89b-12d3-a456-426655440000',
-            operation: 'login',
-            step: 'OKTA',
-            timestamp: '2016-01-02 10:30:01'
+            "session": "100e4567-e89b-12d3-a456-426655440000",
+            "transaction": "101e4567-e89b-12d3-a456-426655440000",
+            "operation": "login",
+            "step": "OKTA",
+            "timestamp": "2016-01-02 10:30:01",
+            "status": "error"
         }, {
-            session: '100e4567-e89b-12d3-a456-426655440000',
-            transaction: '102e4567-e89b-12d3-a456-426655440000',
-            operation: 'getUser',
-            step: 'API Gateway',
-            timestamp: '2016-01-02 10:30:02'
+            "session": "100e4567-e89b-12d3-a456-426655440000",
+            "transaction": "102e4567-e89b-12d3-a456-426655440000",
+            "operation": "getUser",
+            "step": "API Gateway",
+            "timestamp": "2016-01-02 10:30:02",
+            "status": "success"
         }, {
-            session: '100e4567-e89b-12d3-a456-426655440000',
-            transaction: '102e4567-e89b-12d3-a456-426655440000',
-            operation: 'getUser',
-            step: 'User Service',
-            timestamp: '2016-01-02 10:30:03'
+            "session": "100e4567-e89b-12d3-a456-426655440000",
+            "transaction": "102e4567-e89b-12d3-a456-426655440000",
+            "operation": "getUser",
+            "step": "User Service",
+            "timestamp": "2016-01-02 10:30:03",
+            "status": "error"
         }, {
-            session: '100e4567-e89b-12d3-a456-426655440000',
-            transaction: '102e4567-e89b-12d3-a456-426655440000',
-            operation: 'getUser',
-            step: 'ESB',
-            timestamp: '2016-01-02 10:30:04'
+            "session": "100e4567-e89b-12d3-a456-426655440000",
+            "transaction": "102e4567-e89b-12d3-a456-426655440000",
+            "operation": "getUser",
+            "step": "ESB",
+            "timestamp": "2016-01-02 10:30:04",
+            "status": "success"
         }, {
-            session: '100e4567-e89b-12d3-a456-426655440000',
-            transaction: '103e4567-e89b-12d3-a456-426655440000',
-            operation: 'getPolicy',
-            step: 'API Gateway',
-            timestamp: '2016-01-02 10:30:05'
+            "session": "100e4567-e89b-12d3-a456-426655440000",
+            "transaction": "103e4567-e89b-12d3-a456-426655440000",
+            "operation": "getPolicy",
+            "step": "API Gateway",
+            "timestamp": "2016-01-02 10:30:05",
+            "status": "success"
         }, {
-            session: '100e4567-e89b-12d3-a456-426655440000',
-            transaction: '103e4567-e89b-12d3-a456-426655440000',
-            operation: 'getPolicy',
-            step: 'Policy Service',
-            timestamp: '2016-01-02 10:30:06'
+            "session": "100e4567-e89b-12d3-a456-426655440000",
+            "transaction": "103e4567-e89b-12d3-a456-426655440000",
+            "operation": "getPolicy",
+            "step": "Policy Service",
+            "timestamp": "2016-01-02 10:30:06",
+            "status": "error"
         }, {
-            session: '100e4567-e89b-12d3-a456-426655440000',
-            transaction: '103e4567-e89b-12d3-a456-426655440000',
-            operation: 'getPolicy',
-            step: 'ESB',
-            timestamp: '2016-01-02 10:30:07'
+            "session": "100e4567-e89b-12d3-a456-426655440000",
+            "transaction": "103e4567-e89b-12d3-a456-426655440000",
+            "operation": "getPolicy",
+            "step": "ESB",
+            "timestamp": "2016-01-02 10:30:07",
+            "status": "success"
         }]
     },
-    summary: {
-        data: [
-            { name: 'login',     count: 44, failures: 7, errors: 0 }, 
-            { name: 'getUser',   count: 37, failures: 5, errors: 1 }, 
-            { name: 'getPolicy', count: 31, failures: 2, errors: 6 }
+    "summary": {
+        "data": [
+            { "name": "login",     "count": 44, "failures": 7, "errors": 0 }, 
+            { "name": "getUser",   "count": 37, "failures": 5, "errors": 1 }, 
+            { "name": "getPolicy", "count": 31, "failures": 2, "errors": 6 }
         ]
     },
-    diagram: {
-        data: {
+    "diagram": {
+        "data": {
             "name": "Operations",
             "children": [
                 {
-                    "name", "login",
+                    "name": "login",
                     "children": [
                         {
                             "name": "OKTA",
@@ -70,78 +78,73 @@
                                 {
                                     "name": "API Gateway",
                                     "children": [
-                                        {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" },
-                                        {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" }
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
                                     ]
                                 },
-                                {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" },
-                                {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" }
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
                             ]
                         },
-                        {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" },
-                        {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" },
-                        {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" }
-                    ],
-                    {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" },
-                    {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" },
-                    {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" },
-                    {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" },
-                    {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" }
-                },
-                {
-                    "name", "getUser",
-                    children: [
-                        {
-                            "name", "OKTA",
-                            children: [
-                                {
-                                    "name", "User Service",
-                                    children: [
-                                        {
-                                            "name", "API Gateway",
-                                            children: [
-                                                {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" },
-                                                {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" }
-                                            ]
-                                        },
-                                        {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" },
-                                        {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" }
-                                    ]
-                                },
-                                {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red"},
-                                {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" }
-                            ]
-                        },
-                        {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "green" },
-                        {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "green" }
+                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
                     ]
                 },
                 {
-                    "name", "getPolict",
-                    children: [
+                    "name": "getUser",
+                    "children": [
                         {
-                            "name", "ESB",
-                            children: [
+                            "name": "OKTA",
+                            "children": [
                                 {
-                                    "name", "Policy Service",
-                                    children: [
+                                    "name": "User Service",
+                                    "children": [
                                         {
-                                            "name", "API Gateway",
-                                            children: [
-                                                {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" },
-                                                {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" }
+                                            "name": "API Gateway",
+                                            "children": [
+                                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
                                             ]
                                         },
-                                        {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" },
-                                        {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" }
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
                                     ]
                                 },
-                                {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" },
-                                {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "red" }
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red"},
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
                             ]
                         },
-                        {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "green" },
-                        {"name": '100e4567-e89b-12d3-a456-426655440000', "color": "green" }
+                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" }
+                    ]
+                },
+                {
+                    "name": "getPolict",
+                    "children": [
+                        {
+                            "name": "ESB",
+                            "children": [
+                                {
+                                    "name": "Policy Service",
+                                    "children": [
+                                        {
+                                            "name": "API Gateway",
+                                            "children": [
+                                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
+                                            ]
+                                        },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
+                                    ]
+                                },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" },
+                                {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "red" }
+                            ]
+                        },
+                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" },
+                        {"name": "100e4567-e89b-12d3-a456-426655440000", "color": "green" }
                     ]
                 }
             ]
