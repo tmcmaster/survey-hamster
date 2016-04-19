@@ -161,17 +161,95 @@
     (function(Polymer) {
       'use strict';
   
-  
+      var sessionIdBase = "54726db4-5b44-4d63-b371-d72fee7f";
+      var sessionIdCounter = 1000;
+      function processData(data)
+      {
+        sessionIdCounter++;
+        var sessionId = sessionIdBase + sessionIdCounter;
+        var component = "";
+        var step = "";
+        var transactionId = "";
+
+        for (var i in data) {
+          var item = data[i];
+          item.sessionId = sessionId;
+          
+          if (item['transactionId'] === "")
+          {
+            item['transactionId'] = transactionId;
+          }
+          else
+          {
+            transactionId = item['transactionId'];
+          }
+          
+          if (item["initialSystem"] !== "")
+          {
+            var txnState = item['txnState'];
+            if (txnState === "completed")
+            {
+              step = "Completed";
+            }
+            component = item["initialComponent"];
+            if (component.startsWith('/policies'))
+            {
+              component = "Policy";
+            }
+            else if (component.startsWith('/claims'))
+            {
+              component = "Claims";
+            }
+            else if (component.startsWith('/members'))
+            {
+              component = "Members";
+            }
+            else if (component.startsWith('/products'))
+            {
+              component = "Members";
+            }
+          }
+          else
+          {
+            var txnState = item['txnState'];
+            if (txnState === "completed")
+            {
+              step = "Completed";
+            }
+            else
+            {
+              var loggingComponent = item['loggingComponent'];
+              if (loggingComponent.endsWith("service"))
+              {
+                  step = "Micro Service";
+                  if (txnState.startsWith('ESB'))
+                  {
+                    step = "ESB";                
+                  }
+                  else
+                  {
+                    step = "Micro Service";
+                  }
+              }
+            }
+          }
+          item['operation'] = component;
+          item['step'] = step;
+        }
+      }
+      
       function createDataProcessingFunction(xhr, list) {
         return function() {
           if (xhr.readyState == 4 && xhr.status == 200) {
             var data = JSON.parse(xhr.responseText);
-            console.log('Data: ' + data)
-            setInterval(createIntervalFunction(list,data.list.data), 500);
+            processData(data);
+            //console.log('Data: ' + data)
+            setInterval(createIntervalFunction(list,data), 5000);
           }
           else
           {
-            console.log(xhr);
+            console.log(xhr.readyState + ' : ' + xhr.status + ' : ' + xhr.statusText)
+            //console.log(xhr);
           }
         }
       }
@@ -182,8 +260,8 @@
   	      if (Math.floor((Math.random()*5) + 1) === 3)
   	      {
          		if (data.length > 0) {
-                console.log("Adding item to list: " + data);
                 var item = data.shift();
+                //console.log("Adding item to list: " + item);
                 list.addItem(item);
                 data.push(item)
             }
@@ -194,7 +272,8 @@
   	      }
   	    }
   	  }
-  
+
+      
       Polymer({
         is: 'tm-console',
         properties: {
@@ -202,11 +281,17 @@
         },
         
         ready: function() {
+          var counter = 0;
           var xhr = new XMLHttpRequest();
           var list = document.getElementById('list');
           xhr.onreadystatechange = createDataProcessingFunction(xhr, list);
-          xhr.open("GET", "../demos/tm-console-demo.json", true);
-          xhr.send();
+          setInterval(function() {
+            if (counter++ < 15)
+            {
+              xhr.open("GET", "../demos/data/tm-console-session-data.json", true);
+              xhr.send();
+            }
+          }, 2000);
         }
       });
       

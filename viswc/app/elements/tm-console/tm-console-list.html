@@ -27,9 +27,9 @@
       <iron-list items="[[items]]" as="item">
         <template>
           
-          <tm-console-list-item
-            session="[[item.session]]"
-            transaction="[[item.transaction]]" 
+          <tm-console-list-item id="[[item.sessionId]]"
+            session="[[item.sessionId]]"
+            transaction="[[item.transactionId]]" 
             status="{{item.status}}"
             operation="[[item.operation]]"
             step="[[item.step]]" 
@@ -60,9 +60,29 @@
         },
         addItem : function(item) {
           console.log('TM-CONSOLE-LIST: Item Added')
+          var cacheItem = document.getElementById(item.sessionId);
+          if (cacheItem !== null)
+          {
+            if (cacheItem.status !== "error")
+            {
+              console.log('Updating cached value: ' + item.step);
+              cacheItem.timestamp = item.timestamp;
+              cacheItem.transaction = item.transactionId;
+              cacheItem.operation = item.operation;
+              cacheItem.step = item.step;
+              if (Math.floor((Math.random()*10) + 1) === 3)
+    	        {
+    	          cacheItem.status = "error";
+    	        }
+              setTimeout(this._refresh, 100);
+            }
+          }
+          else
+          {
             this.items.unshift(item);
             setTimeout(this._refresh, 100);
             console.log('Added element to end of array')
+          }
         },
         ready: function() {
           // setup a refresh function, for callbacks to use
