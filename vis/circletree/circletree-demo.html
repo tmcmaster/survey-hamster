@@ -14,6 +14,12 @@
 </head>
 
 <body>
+  <div id="debug">
+    <label for="input">Transaction</label>
+    <input id="input"/>
+    <button id="remove">Remove</button>
+    <button id="add">Add</button>
+  </div>
   <div id="vis"></div>
   <script>
     window.d3.circletree('#vis', 'data/tm-console-summary.json')

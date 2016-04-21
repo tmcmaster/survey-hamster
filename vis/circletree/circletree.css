@@ -95,7 +95,7 @@ a:hover {
 }
 
 path.arc {
-  cursor: move;
+  /*cursor: move;*/
   fill: #F0F8FF;
 }
 
@@ -117,7 +117,7 @@ path.arc {
 }
 
 circle.node {
-  cursor: pointer;
+  /*cursor: pointer;*/
   stroke: #000;
   stroke-width: .5px;
 }
